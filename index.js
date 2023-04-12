@@ -11,3 +11,18 @@ async function handleGetIssLocationClick() {
   locationParagraph.innerHTML =
     jsonData.iss_position.latitude + ', ' + jsonData.iss_position.longitude;
 }
+
+async function handleGetGovernmentProjectClick(){
+  const projectParagraph = document.getElementById('bullShitP');
+  const projectURL = 'https://corporatebs-generator.sameerkumar.website/'
+
+  const response = await fetch(projectURL, {
+    method: 'GET',
+    headers:{},
+  });
+  const bsJsonData = await response.json();
+
+  projectParagraph.innerHTML =
+  bsJsonData.phrase
+
+}
